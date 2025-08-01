@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy National Girlfriend Day, Baby!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #a8e6cf, #88d8a3, #7fcdcd);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        
+        .slideshow-container {
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+            margin: auto;
+        }
+        
+        .slide {
+            display: none;
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            animation: slideIn 0.5s ease-in-out;
+            border: 3px dashed #a8e6cf;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .coupon-header {
+            background: #a8e6cf;
+            color: white;
+            padding: 15px;
+            margin: -40px -40px 30px -40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .award-header {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #2d5a27;
+            padding: 15px;
+            margin: -40px -40px 30px -40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .award-header::after {
+            content: '🏆';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+        }
+        
+        .cute-image {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid #a8e6cf;
+        }
+        
+        .coupon-image {
+            width: 150px;
+            height: auto;
+            margin: 15px 0;
+            border: 2px dashed #a8e6cf;
+            border-radius: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        
+        .big-emoji {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .coupon-title {
+            color: #2d5a27;
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .coupon-subtitle {
+            color: #4a7c59;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .barcode {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+            color: #2d5a27;
+            margin: 20px 0;
+        }
+        
+        .fine-print {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 15px;
+        }
+        
+        .award-text {
+            color: #2d5a27;
+            font-size: 1.3em;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+        
+        .certificate-border {
+            border: 8px solid #a8e6cf;
+            border-image: repeating-linear-gradient(45deg, #a8e6cf, #7fcdcd 10px) 8;
+            margin: -40px;
+            padding: 40px;
+            background: linear-gradient(45deg, #f9f9f9, white);
+        }
+        
+        .play-button {
+            background: linear-gradient(135deg, #a8e6cf, #7fcdcd);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(168, 230, 207, 0.4);
+            font-family: 'Poppins', sans-serif;
+            margin: 20px 0;
+        }
+        
+        .play-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(168, 230, 207, 0.6);
+        }
+        
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .nav-btn {
+            background: rgba(168, 230, 207, 0.9);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(168, 230, 207, 1);
+            transform: translateY(-2px);
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(168, 230, 207, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .cute-message {
+            color: #2d5a27;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        
+        .decorative-line {
+            width: 100%;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #a8e6cf, #a8e6cf 10px, transparent 10px, transparent 20px);
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .slide {
+                padding: 30px 20px;
+                min-height: 500px;
+            }
+            .coupon-title {
+                font-size: 2em;
+            }
+            .coupon-header, .award-header {
+                margin: -30px -20px 20px -20px;
+            }
+            .cute-image, .coupon-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / 5
+        </div>
+        
+        <!-- Slide 1: Hug & Kiss Coupon -->
+        <div class="slide active">
+            <div class="coupon-header">COUPON FOR:</div>
+            
+            <!-- SVG recreation of the hug & kiss coupon -->
+            <svg class="coupon-image" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="200" fill="#f9f9f9" stroke="#333" stroke-width="3" stroke-dasharray="8,4"/>
+                <text x="20" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">COUPON FOR:</text>
+                <text x="20" y="70" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#333">1</text>
+                <text x="80" y="55" font-family="Arial, sans-serif" font-size="12" fill="#333">FREE</text>
+                <text x="80" y="75" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">HUG &</text>
+                <text x="80" y="95" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">KISSES</text>
+                <text x="220" y="70" font-size="30" fill="#333">✂</text>
+                <text x="20" y="125" font-family="Arial, sans-serif" font-size="10" fill="#333">Redeemable</text>
+                <text x="20" y="140" font-family="Arial, sans-serif" font-size="10" fill="#333">anytime</text>
+                <circle cx="120" cy="130" r="8" fill="white" stroke="#333" stroke-width="1"/>
+                <text x="120" y="135" font-size="10" text-anchor="middle" fill="red">♥</text>
+                <circle cx="140" cy="130" r="8" fill="white" stroke="#333" stroke-width="1"/>
+                <text x="140" y="135" font-size="10" text-anchor="middle" fill="red">♥</text>
+                <rect x="200" y="120" width="80" height="15" fill="none" stroke="#333" stroke-width="1"/>
+                <text x="205" y="130" font-family="monospace" font-size="8" fill="#333">|||||| ||||</text>
+            </svg>
+            
+            <div class="coupon-title">1 FREE</div>
+            <div class="coupon-subtitle">HUGS & KISSES</div>
+            <div class="cute-message">
+                Valid for: Baby Diah<br>
+                Includes: Unlimited affection & Taylor Swift vibes!
+            </div>
+            <div class="barcode">|||||| |||| | ||||| ||||||</div>
+            <div class="fine-print">*Redeemable anytime, especially during LDR moments</div>
+            
+            <button class="play-button" onclick="playMessage()">
+                🎵 Redeem with Music 🎵
+            </button>
+        </div>
+        
+        <!-- Slide 2: Favorite Person Award -->
+        <div class="slide">
+            <div class="award-header">OFFICIAL CERTIFICATE</div>
+            
+            <!-- SVG recreation of favorite person award -->
+            <svg class="cute-image" viewBox="0 0 250 180" xmlns="http://www.w3.org/2000/svg">
+                <rect width="250" height="180" fill="#f5f5f5" stroke="#d3d3d3" stroke-width="2" rx="10"/>
+                <path d="M20,20 Q20,10 30,10 L220,10 Q230,10 230,20 L230,30 L20,30 Z" fill="#e8e8e8"/>
+                <text x="125" y="25" font-family="serif" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">Favorite person</text>
+                <text x="125" y="50" font-family="serif" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">AWARD</text>
+                <text x="125" y="75" font-family="serif" font-size="10" fill="#333" text-anchor="middle">PROUDLY PRESENT TO</text>
+                <text x="125" y="100" font-family="serif" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">You</text>
+                <text x="125" y="120" font-family="serif" font-size="8" fill="#333" text-anchor="middle">i enjoy your</text>
+                <text x="125" y="135" font-family="serif" font-size="8" fill="#333" text-anchor="middle">company &lt;3</text>
+                <polygon points="125,150 120,160 130,160" fill="#ffd700"/>
+                <text x="125" y="165" font-size="12" text-anchor="middle">⭐</text>
+                <path d="M30,160 Q125,170 220,160" stroke="#d3d3d3" stroke-width="1" fill="none"/>
+            </svg>
+            
+            <div class="award-text">FAVORITE PERSON AWARD</div>
+            <div class="award-text" style="font-size: 1.1em;">Proudly presented to:</div>
+            <div class="coupon-title" style="font-size: 2em; color: #d4af37;">DIAH</div>
+            <div class="cute-message">
+                For being absolutely amazing during my healing era<br>
+                & putting up with all my overthinking! 🥺
+            </div>
+            <div class="decorative-line"></div>
+            <div class="fine-print">Certified by: Your very grateful boyfriend 💚</div>
+        </div>
+        
+        <!-- Slide 3: Brain Flower -->
+        <div class="slide">
+            <div class="certificate-border">
+                <!-- SVG recreation of brain with flowers -->
+                <svg class="cute-image" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="pinkGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#ffb3ba;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff9999;stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    <!-- Brain shape -->
+                    <path d="M100,50 C120,40 140,50 150,70 C160,90 150,110 140,120 C130,130 120,135 100,130 C80,135 70,130 60,120 C50,110 40,90 50,70 C60,50 80,40 100,50 Z" fill="url(#pinkGrad)" stroke="#ff6b6b" stroke-width="2"/>
+                    <!-- Brain details -->
+                    <path d="M70,80 Q100,85 130,80" stroke="#ff6b6b" stroke-width="1.5" fill="none"/>
+                    <path d="M75,95 Q100,100 125,95" stroke="#ff6b6b" stroke-width="1.5" fill="none"/>
+                    <path d="M80,110 Q100,115 120,110" stroke="#ff6b6b" stroke-width="1.5" fill="none"/>
+                    <!-- Flowers -->
+                    <circle cx="80" cy="70" r="8" fill="#ff69b4"/>
+                    <circle cx="75" cy="65" r="4" fill="#ffb3e6"/>
+                    <circle cx="85" cy="65" r="4" fill="#ffb3e6"/>
+                    <circle cx="80" cy="60" r="4" fill="#ffb3e6"/>
+                    <circle cx="80" cy="75" r="4" fill="#ffb3e6"/>
+                    <circle cx="80" cy="70" r="2" fill="#333"/>
+                    
+                    <circle cx="120" cy="85" r="8" fill="#ff69b4"/>
+                    <circle cx="115" cy="80" r="4" fill="#ffb3e6"/>
+                    <circle cx="125" cy="80" r="4" fill="#ffb3e6"/>
+                    <circle cx="120" cy="75" r="4" fill="#ffb3e6"/>
+                    <circle cx="120" cy="90" r="4" fill="#ffb3e6"/>
+                    <circle cx="120" cy="85" r="2" fill="#333"/>
+                    
+                    <circle cx="95" cy="105" r="6" fill="#ff69b4"/>
+                    <circle cx="92" cy="102" r="3" fill="#ffb3e6"/>
+                    <circle cx="98" cy="102" r="3" fill="#ffb3e6"/>
+                    <circle cx="95" cy="99" r="3" fill="#ffb3e6"/>
+                    <circle cx="95" cy="108" r="3" fill="#ffb3e6"/>
+                    <circle cx="95" cy="105" r="1.5" fill="#333"/>
+                    
+                    <!-- Sparkles -->
+                    <text x="60" y="50" font-size="12" fill="#ffd700">✨</text>
+                    <text x="140" y="60" font-size="12" fill="#ffd700">✨</text>
+                    <text x="150" y="100" font-size="12" fill="#ffd700">✨</text>
+                    <text x="50" y="120" font-size="12" fill="#ffd700">✨</text>
+                    
+                    <!-- Cute face -->
+                    <circle cx="90" cy="90" r="2" fill="#ff1493"/>
+                    <circle cx="110" cy="90" r="2" fill="#ff1493"/>
+                    <path d="M95,100 Q100,105 105,100" stroke="#ff1493" stroke-width="2" fill="none"/>
+                </svg>
+                
+                <div class="coupon-title" style="font-size: 1.8em;">PATIENCE LEVEL:</div>
+                <div class="coupon-title" style="color:#ff69b4;">EXPERT</div>
+                <div class="cute-message">
+                    Achievement unlocked for:<br>
+                    ✓ Dealing with my trust issues<br>
+                    ✓ Being patient with my healing<br>
+                    ✓ Making LDR feel easy<br>
+                    ✓ Still loving me through it all
+                </div>
+                <div class="fine-print">This award comes with eternal gratitude & love!</div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Luck Meter -->
+        <div class="slide">
+            <div class="coupon-header">LUCK METER</div>
+            <div class="big-emoji">🍀</div>
+            <div class="coupon-title">LEVEL: JACKPOT</div>
+            <div class="cute-message" style="font-size: 1.2em;">
+                How lucky am I to find you?<br>
+                <strong style="color: #a8e6cf; font-size: 2em;">∞%</strong><br>
+                (That's infinity percent btw!)
+            </div>
+            <div class="cute-message">
+                You came into my life pas banget when I needed someone who could handle my baggage & help me grow! 🌱
+            </div>
+            <div class="barcode">|||| ||| |||| | ||| ||||</div>
+        </div>
+        
+        <!-- Slide 5: Love Coupon Book -->
+        <div class="slide">
+            <div class="coupon-header">LOVE COUPON BOOK</div>
+            <div class="big-emoji">💝</div>
+            <div class="coupon-title">FOREVER</div>
+            <div class="coupon-subtitle">COLLECTION</div>
+            <div class="cute-message">
+                This coupon book includes:<br>
+                🎫 Unlimited "I love you"s<br>
+                🎫 24/7 emotional support<br>
+                🎫 Dance parties to Taylor Swift<br>
+                🎫 Future adventures together<br>
+                🎫 Growing old & chaotic together
+            </div>
+            <div class="decorative-line"></div>
+            <div class="fine-print">
+                Valid forever & always, baby! 💚<br>
+                <em>- Your healing but happy boyfriend</em>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">← Previous</button>
+            <button class="nav-btn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide;
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+        
+        // Create floating hearts animation
+        function createFloatingHeart() {
+            const hearts = ['💚', '🌿', '🌱', '💝', '🍀'];
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.bottom = '0px';
+            heart.style.fontSize = '25px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            heart.style.animation = 'floatUp 5s linear forwards';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 2500);
+        
+        function playMessage() {
+            const button = document.querySelector('.play-button');
+            button.style.background = 'linear-gradient(135deg, #7fcdcd, #a8e6cf)';
+            button.innerHTML = '🎵 Opening Spotify... 🎵';
+            
+            // Create more hearts when button is clicked
+            for(let i = 0; i < 20; i++) {
+                setTimeout(createFloatingHeart, i * 100);
+            }
+            
+            // Open Spotify link
+            setTimeout(() => {
+                window.open('https://open.spotify.com/track/71BqAINEnezjQfxE4VuJfq?si=yZbBE8zPRb2Y7AhPiCG7TA', '_blank');
+                
+                button.innerHTML = '🎵 Redeem with Music 🎵';
+                button.style.background = 'linear-gradient(135deg, #a8e6cf, #7fcdcd)';
+            }, 1500);
+        }
+        
+        // Add some initial hearts
+        setTimeout(() => {
+            for(let i = 0; i < 3; i++) {
+                setTimeout(createFloatingHeart, i * 1000);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
